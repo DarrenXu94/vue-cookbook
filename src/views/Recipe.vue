@@ -1,16 +1,12 @@
 <template>
-  <div>
-
-    App
-    <router-view />
-  </div>
+  <div>Recipe</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'Recipie',
   components: {
   },
   data() {

@@ -1,8 +1,4 @@
 export interface CookbookResponse {
-  response: Response;
-}
-
-export interface Response {
   object: string;
   results: Result[];
   next_cursor: null;
