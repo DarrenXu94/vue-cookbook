@@ -2,6 +2,11 @@
   <div class="home">
     <Find />
     <SearchFilters />
+    <div class="button-container">
+
+      <Button @button-clicked="performSearch">
+      </Button>
+    </div>
 
 
     <!-- <div v-for="result of cookbook.recipes.results" :key="result.id">
@@ -20,13 +25,20 @@ import { defineComponent } from 'vue';
 import { useCookbookStore } from '../stores/cookbook.store';
 import snakeCase from 'lodash.snakecase'
 import Find from '../components/Find.vue'
+import Button from '../components/ui/Button.vue'
 import SearchFilters from '../components/SearchFilters.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
     Find,
-    SearchFilters
+    SearchFilters,
+    Button
+  },
+  methods: {
+    performSearch() {
+      console.log('Search')
+    }
   },
   setup() {
     const cookbook = useCookbookStore();
@@ -46,5 +58,9 @@ export default defineComponent({
   padding: 12px;
   background-color: var(--color-bg);
   color: white;
+
+  .button-container {
+    padding: 12px 0px;
+  }
 }
 </style>
