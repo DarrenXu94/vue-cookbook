@@ -27,6 +27,8 @@ import snakeCase from 'lodash.snakecase'
 import Find from '../components/Find.vue'
 import Button from '../components/ui/Button.vue'
 import SearchFilters from '../components/SearchFilters.vue'
+import { useSearchStore } from '../stores/search.store';
+import router from '../routes';
 
 export default defineComponent({
   name: 'Home',
@@ -37,13 +39,17 @@ export default defineComponent({
   },
   methods: {
     performSearch() {
-      console.log('Search')
+      const mealTypes = this.searchStore.mealTypes.map(mealType => mealType.name)
+      router.push({ name: 'Results', query: { mealTypes: mealTypes.join(',') } })
     }
   },
   setup() {
     const cookbook = useCookbookStore();
+    const searchStore = useSearchStore();
+
     return {
-      cookbook
+      cookbook,
+      searchStore
     }
   },
   data() {

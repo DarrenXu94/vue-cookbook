@@ -1,4 +1,4 @@
 export interface SearchQuery {
-  ingredients?: string[];
-  mealType?: string[];
+  ingredients?: string;
+  mealTypes?: string;
 }

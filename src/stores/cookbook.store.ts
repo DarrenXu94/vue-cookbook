@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { CookbookResponse, MultiSelect } from "../models/cookbook.models";
 import { CookbookService } from "../services/cookbook.service";
 import snakeCase from "lodash.snakecase";
+import { SearchQuery } from "../models/search.models";
 
 const cookbookService = new CookbookService();
 
@@ -12,6 +13,33 @@ export const useCookbookStore = defineStore("cookbook", {
     mealTypes: [] as MultiSelect[],
   }),
   getters: {
+    getSearchResult: (state) => {
+      return (query: SearchQuery) => {
+        const mealTypes = query.mealTypes && query.mealTypes.split(",");
+        const ingredients = query.ingredients && query.ingredients.split(",");
+        const res = state.recipes.results.filter((result) => {
+          let filteredIngredients, filteredMealTypes;
+          if (ingredients) {
+            filteredIngredients =
+              result.properties.Ingredients.multi_select.find((x) =>
+                ingredients.some((y) => y === x.name)
+              );
+          }
+          if (mealTypes) {
+            filteredMealTypes = result.properties[
+              "Meal type"
+            ].multi_select.find((x) => mealTypes.some((y) => y === x.name));
+          }
+
+          // console.log(result, mealTypes);
+
+          return filteredIngredients || filteredMealTypes;
+        });
+
+        console.log(res);
+        return res;
+      };
+    },
     getRecipeByName: (state) => {
       return (name: string) =>
         state.recipes.results.find(

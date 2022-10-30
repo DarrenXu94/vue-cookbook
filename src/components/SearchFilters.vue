@@ -11,6 +11,7 @@
 import { defineComponent } from 'vue';
 import { MultiSelect } from '../models/cookbook.models';
 import { useCookbookStore } from '../stores/cookbook.store';
+import { useSearchStore } from '../stores/search.store';
 import FilterBlock from './FilterBlock.vue'
 
 export default defineComponent({
@@ -20,13 +21,15 @@ export default defineComponent({
   },
   setup() {
     const cookbook = useCookbookStore();
+    const searchStore = useSearchStore();
     return {
-      cookbook
+      cookbook,
+      searchStore
     }
   },
   methods: {
     onSelectionChange(updatedList: MultiSelect[]) {
-      console.log(updatedList)
+      this.searchStore.setMealTypes(updatedList)
     }
   },
   data() {
