@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <router-view />
+  <div class="pill">
+    <slot></slot>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'Pill',
   components: {
   },
   data() {
@@ -17,3 +17,9 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+.pill {
+  background-color: white;
+  border-radius: 5px;
+}
+</style>

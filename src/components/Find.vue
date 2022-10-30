@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <router-view />
-  </div>
+  <div>Find a recipe</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'App',
+  name: 'Find',
   components: {
   },
   data() {
