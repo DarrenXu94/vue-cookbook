@@ -20,6 +20,9 @@ export default defineComponent({
 <style lang="scss">
 .pill {
   background-color: white;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
+  color: var(--color-bg);
+  padding: 8px;
+
 }
 </style>

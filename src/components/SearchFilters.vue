@@ -1,6 +1,5 @@
 <template>
   <div class="search-filters">
-    Search filters
     <p>
       You can select more than one option
     </p>
@@ -36,8 +35,4 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="scss">
-.search-filters {
-  background-color: gray;
-}
-</style>
+

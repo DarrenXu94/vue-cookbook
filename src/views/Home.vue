@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <Find />
     <SearchFilters />
 
@@ -41,3 +41,10 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+.home {
+  padding: 12px;
+  background-color: var(--color-bg);
+  color: white;
+}
+</style>

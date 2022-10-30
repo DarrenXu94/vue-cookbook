@@ -3,12 +3,14 @@
     <h3>
       {{ title }}
     </h3>
-    <div class="block-item" v-for="item of items" :key="item.id" @click="selected(item)">
-      <Pill :class="{ isActive: isActive(item) }">
-        {{ item.name }}
-      </Pill>
+    <div class="block-item-container">
+
+      <div class="block-item" v-for="item of items" :key="item.id" @click="selected(item)">
+        <Pill :class="{ isActive: isActive(item) }" class="center-content">
+          {{ startCase(item.name) }}
+        </Pill>
+      </div>
     </div>
-    {{ selectedList }}
   </div>
 </template>
 
@@ -16,6 +18,7 @@
 import { defineComponent, PropType } from 'vue';
 import { MultiSelect } from '../models/cookbook.models';
 import Pill from './ui/Pill.vue'
+import startCase from "lodash.startcase";
 
 export default defineComponent({
   name: 'FilterBlock',
@@ -53,17 +56,29 @@ export default defineComponent({
   },
   data() {
     return {
-      selectedList: [] as MultiSelect[]
+      selectedList: [] as MultiSelect[],
+      startCase
     };
   },
 });
 </script>
 <style lang="scss">
 .block-item {
+  &-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+
   .pill {
 
     &.isActive {
       background-color: gray;
+    }
+
+    &.center-content {
+      display: flex;
+      justify-content: center;
     }
   }
 }
