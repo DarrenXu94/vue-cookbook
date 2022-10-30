@@ -36,12 +36,12 @@ export interface Parent {
 
 export interface TableHeadings {
   Steps: Steps;
-  "Meal type": Ingredients;
-  Ingredients: Ingredients;
+  "Meal type": MultiSelectObject;
+  Ingredients: MultiSelectObject;
   Name: Name;
 }
 
-export interface Ingredients {
+export interface MultiSelectObject {
   id: string;
   type: string;
   multi_select: MultiSelect[];
