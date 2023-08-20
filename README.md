@@ -1,3 +1,3 @@
 # NotionDB Vue Typescript cookbook
 
-[View here](cookbook.darrenxu.com)
+[View here](https://cookbook.darrenxu.com)
