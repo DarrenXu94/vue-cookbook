@@ -1,3 +1,5 @@
+import { COLORS } from "../constants/colors";
+
 export interface CookbookResponse {
   object: string;
   results: Result[];
@@ -50,7 +52,7 @@ export interface MultiSelectObject {
 export interface MultiSelect {
   id: string;
   name: string;
-  color: string;
+  color: keyof typeof COLORS;
 }
 
 export interface Name {

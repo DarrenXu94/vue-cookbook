@@ -8,7 +8,7 @@
         Meal type
         <div class="meal-type-container">
           <Tag
-            :style="`background: ${mealType.color}`"
+            :style="`background: ${ColorMapper(mealType.color)}`"
             v-for="mealType of recipe?.properties['Meal type'].multi_select"
             :key="mealType.id"
             :value="mealType.name"
@@ -20,7 +20,7 @@
           Ingredients
           <div class="meal-type-container">
             <Tag
-              :style="`background: ${ingredient.color}`"
+              :style="`background: ${ColorMapper(ingredient.color)}`"
               v-for="ingredient of recipe?.properties.Ingredients.multi_select"
               :key="ingredient.id"
               :value="ingredient.name"
@@ -48,6 +48,7 @@ import { Result } from "../models/cookbook.models";
 import { useCookbookStore } from "../stores/cookbook.store";
 import Tag from "primevue/tag";
 import Card from "primevue/card";
+import { ColorMapper } from "../utils/colors";
 
 export default defineComponent({
   name: "Recipie",
@@ -63,6 +64,7 @@ export default defineComponent({
     const cookbook = useCookbookStore();
     return {
       cookbook,
+      ColorMapper,
     };
   },
   data() {
@@ -76,6 +78,10 @@ export default defineComponent({
 .recipe-page {
   white-space: pre-line;
   padding-top: 2rem;
+
+  .p-tag {
+    color: rgb(50, 48, 44);
+  }
 }
 
 .meal-type-container {
