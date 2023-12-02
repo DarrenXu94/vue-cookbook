@@ -5,24 +5,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'Pill',
-  components: {
-  },
+  name: "Pill",
+  components: {},
   data() {
-    return {
-    };
+    return {};
   },
 });
 </script>
-<style lang="scss">
-.pill {
-  background-color: white;
-  border-radius: var(--border-radius);
-  color: var(--color-bg);
-  padding: 8px;
-
-}
-</style>

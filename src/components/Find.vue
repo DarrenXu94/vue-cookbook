@@ -11,21 +11,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Input from './ui/Input.vue'
-import Pill from './ui/Pill.vue'
-import { Icon } from '@iconify/vue';
+import { defineComponent } from "vue";
+import Input from "./ui/Input.vue";
+import Pill from "./ui/Pill.vue";
+import { Icon } from "@iconify/vue";
 
 export default defineComponent({
-  name: 'Find',
+  name: "Find",
   components: {
     Input,
     Pill,
-    Icon
+    Icon,
   },
   data() {
-    return {
-    };
+    return {};
   },
 });
 </script>
@@ -41,7 +40,6 @@ export default defineComponent({
       top: 50%;
       transform: translate(50%, -50%);
       display: flex;
-
     }
 
     .custom-input {

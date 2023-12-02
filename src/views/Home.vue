@@ -1,13 +1,10 @@
 <template>
-  <div class="home">
-    <Find />
+  <div class="home content-grid">
+    <!-- <Find /> -->
     <SearchFilters />
     <div class="button-container">
-
-      <Button @button-clicked="performSearch">
-      </Button>
+      <Button @click="performSearch" label="Search" />
     </div>
-
 
     <!-- <div v-for="result of cookbook.recipes.results" :key="result.id">
       <div v-for="title of result.properties.Name.title" :key="title.text.content">
@@ -21,27 +18,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { useCookbookStore } from '../stores/cookbook.store';
-import snakeCase from 'lodash.snakecase'
-import Find from '../components/Find.vue'
-import Button from '../components/ui/Button.vue'
-import SearchFilters from '../components/SearchFilters.vue'
-import { useSearchStore } from '../stores/search.store';
-import router from '../routes';
+import { defineComponent } from "vue";
+import { useCookbookStore } from "../stores/cookbook.store";
+import snakeCase from "lodash.snakecase";
+import Find from "../components/Find.vue";
+// import Button from '../components/ui/Button.vue'
+import SearchFilters from "../components/SearchFilters.vue";
+import { useSearchStore } from "../stores/search.store";
+import router from "../routes";
+import Button from "primevue/button";
 
 export default defineComponent({
-  name: 'Home',
+  name: "Home",
   components: {
     Find,
     SearchFilters,
-    Button
+    Button,
   },
   methods: {
     performSearch() {
-      const mealTypes = this.searchStore.mealTypes.map(mealType => mealType.name)
-      router.push({ name: 'Results', query: { mealTypes: mealTypes.join(',') } })
-    }
+      const mealTypes = this.searchStore.mealTypes.map(
+        (mealType) => mealType.name
+      );
+      router.push({
+        name: "Results",
+        query: { mealTypes: mealTypes.join(",") },
+      });
+    },
   },
   setup() {
     const cookbook = useCookbookStore();
@@ -49,12 +52,12 @@ export default defineComponent({
 
     return {
       cookbook,
-      searchStore
-    }
+      searchStore,
+    };
   },
   data() {
     return {
-      snakeCase
+      snakeCase,
     };
   },
 });
@@ -62,8 +65,6 @@ export default defineComponent({
 <style lang="scss">
 .home {
   padding: 12px;
-  background-color: var(--color-bg);
-  color: white;
 
   .button-container {
     padding: 12px 0px;

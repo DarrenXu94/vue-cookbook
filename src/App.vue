@@ -1,22 +1,27 @@
 <template>
-  <div>
+  <div class="main">
     <Navbar />
     <router-view />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Navbar from './components/Navbar.vue'
+import { defineComponent } from "vue";
+import Navbar from "./components/Navbar.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
-    Navbar
+    Navbar,
   },
   data() {
-    return {
-    };
+    return {};
   },
 });
 </script>
+<style lang="scss">
+.main {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+</style>
