@@ -5,7 +5,9 @@
     <p v-for="k of Object.keys($route.query)" :key="k">
       You searched for {{ startCase(k) }}: {{ $route.query[k] }}
     </p>
-    <ResultCard v-for="result of results" :key="result.id" :recipe="result" />
+    <div class="d-flex">
+      <ResultCard v-for="result of results" :key="result.id" :recipe="result" />
+    </div>
   </div>
 </template>
 

@@ -5,20 +5,24 @@
     </h1>
     <div>
       Meal type
-      <div
-        v-for="mealType of recipe?.properties['Meal type'].multi_select"
-        :key="mealType.id"
-      >
-        {{ mealType.name }}
+      <div class="meal-type-container">
+        <Tag
+          v-for="mealType of recipe?.properties['Meal type'].multi_select"
+          :key="mealType.id"
+          :value="mealType.name"
+        >
+        </Tag>
       </div>
     </div>
     <div>
       Ingredients
-      <div
-        v-for="ingredient of recipe?.properties.Ingredients.multi_select"
-        :key="ingredient.id"
-      >
-        {{ ingredient.name }}
+      <div class="meal-type-container">
+        <Tag
+          v-for="ingredient of recipe?.properties.Ingredients.multi_select"
+          :key="ingredient.id"
+          :value="ingredient.name"
+        >
+        </Tag>
       </div>
     </div>
     <div>
@@ -37,10 +41,11 @@
 import { defineComponent } from "vue";
 import { Result } from "../models/cookbook.models";
 import { useCookbookStore } from "../stores/cookbook.store";
+import Tag from "primevue/tag";
 
 export default defineComponent({
   name: "Recipie",
-  components: {},
+  components: { Tag },
   beforeMount() {
     this.recipe = this.cookbook.getRecipeByName(
       this.$route.params.id as string
@@ -62,5 +67,10 @@ export default defineComponent({
 <style lang="scss">
 .recipe-page {
   white-space: pre-line;
+}
+
+.meal-type-container {
+  display: flex;
+  gap: 0.5rem;
 }
 </style>

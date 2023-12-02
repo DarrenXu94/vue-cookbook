@@ -1,5 +1,8 @@
 <template>
   <Menubar :model="items">
+    <template #start>
+      <img src="../assets/img/favicon-32x32.png" />
+    </template>
     <template #item="{ item, props }">
       <router-link
         v-if="item.route"
