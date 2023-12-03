@@ -14,8 +14,8 @@ export interface Page {}
 export interface Result {
   object: string;
   id: string;
-  created_time: Date;
-  last_edited_time: Date;
+  created_time: string;
+  last_edited_time: string;
   created_by: UserData;
   last_edited_by: UserData;
   cover: null;

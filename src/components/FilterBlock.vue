@@ -81,8 +81,11 @@ export default defineComponent({
   }
 
   .pill {
+    color: #4b5563;
+
     &.isActive {
       background-color: gray;
+      color: white;
     }
 
     &.center-content {

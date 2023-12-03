@@ -5,7 +5,7 @@
     <p v-for="k of Object.keys($route.query)" :key="k">
       You searched for {{ startCase(k) }}: {{ $route.query[k] }}
     </p>
-    <div class="d-flex">
+    <div class="d-flex result-card-container">
       <ResultCard v-for="result of results" :key="result.id" :recipe="result" />
     </div>
   </div>
@@ -49,3 +49,8 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="scss">
+.result-card-container {
+  gap: 2rem;
+}
+</style>
