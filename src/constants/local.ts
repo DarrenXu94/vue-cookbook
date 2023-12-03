@@ -55,11 +55,6 @@ export const testData = {
                 name: "lunch",
                 color: "green",
               },
-              {
-                id: "1b1573cf-698e-4942-aa7e-ce51d70d8595",
-                name: "dinner",
-                color: "purple",
-              },
             ],
           },
           Ingredients: {

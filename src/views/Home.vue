@@ -6,6 +6,10 @@
       <Button @click="performSearch" label="Search" />
     </div>
 
+    <p>Or search by ingredient</p>
+
+    <IngredientSearch />
+
     <!-- <div v-for="result of cookbook.recipes.results" :key="result.id">
       <div v-for="title of result.properties.Name.title" :key="title.text.content">
         <router-link :to="`/recipe/${snakeCase(title.text.content)}`">
@@ -27,6 +31,7 @@ import SearchFilters from "../components/SearchFilters.vue";
 import { useSearchStore } from "../stores/search.store";
 import router from "../routes";
 import Button from "primevue/button";
+import IngredientSearch from "../components/IngredientSearch.vue";
 
 export default defineComponent({
   name: "Home",
@@ -34,6 +39,7 @@ export default defineComponent({
     Find,
     SearchFilters,
     Button,
+    IngredientSearch,
   },
   methods: {
     performSearch() {
